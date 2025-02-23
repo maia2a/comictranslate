@@ -1,22 +1,29 @@
 {
   "manifest_version": 3,
-  "name": "Translator Extension",
+  "name": "Tradutor de Quadrinhos",
   "version": "1.0",
-  "description": "A simple translator extension",
-  "permissions": ["activeTab", "scripting"],
-  "action":{
+  "description": "Uma extensão para traduzir quadrinhos automaticamente.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "icon16.png",
-      "32": "icon32.png",
-      "48": "icon48.png",
-      "128": "icon128.png"
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
     }
   },
   "icons": {
-    "16": "icon16.png",
-    "32": "icon32.png",
-    "48": "icon48.png",
-    "128": "icon128.png"
-  }
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
