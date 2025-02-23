@@ -40,5 +40,30 @@ async function translateText(text, targetLanguage) {
 }
 
 function renderTranslatedText(imgElement, translatedText) {
-  
+  // Create a canvas element to draw the translated text
+  const canvas = new fabric.Canvas('comicCanvas');
+
+  //Load the image to the canvas
+  fabric.Image.fromURL(imageElement.src, (img) => {
+    img.scale(0.5);
+    canvas.setWidth(img.width);
+    canvas.setHeight(img.height);
+    canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas));
+
+    // Create a text element to render the translated text
+    const text = new fabric.Text(translatedText, {
+      left: 50,
+      top: 50,
+      fill: 'white',
+      fontFamily: 'Arial',
+      fontSize: 24,
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    });
+
+    // Add the text element to the canvas
+    canvas.add(text);
+
+    // Render the canvas
+    canvas.renderAll();
+  });
 }
